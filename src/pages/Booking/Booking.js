@@ -3,6 +3,7 @@ import { DateCalendar } from "@mui/x-date-pickers";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import styled from "styled-components";
+import CustomButton from "../../components/button";
 const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
   alignItem: "center",
@@ -28,6 +29,9 @@ const MainSection = styled("div")(({ theme }) => ({
             width: "100px",
             objectFit: "cover",
             borderRadius: '100%'
+        },
+        "& .Mui-selected": {
+          backgroundColor: '#ff9800'
         }
     },
     "&.rightSide":{
@@ -151,8 +155,14 @@ const Booking = () => {
                         </Typography>
                         <Typography variant="p" component="p">
                           9.00am
-                        </Typography>
+                        </Typography>              
                         </Box>
+                        <CustomButton
+                          text="Continue"
+                          color="#db8c00"
+                          textColor="#222"
+                          customSx={{width: '100%', marginTop: '30px', display: 'block'}}
+                        />
                     </Box>
                 </MainSection>
             </Container>
