@@ -20,6 +20,7 @@ import LaunchWithUs from "./pages/LaunchWithUs/LaunchWithUs";
 import Pricing from "./pages/pricing";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import OurTeam from "./pages/OurTeam/OurTeam";
+import Booking from "./pages/Booking/Booking";
 
 
 function App() {
@@ -136,6 +137,7 @@ function App() {
             <Route path="/pricing" element={<Pricing/>} />
             <Route path="/portfolio" element={<Portfolio/>} />
             <Route path="/ourteam" element={<OurTeam/>} />
+            <Route path="/booking" element={<Booking/>} />
           </Routes>
         </Router>
         <Footer setIsDark={setIsDark} />
