@@ -306,7 +306,7 @@ function Pricing() {
   return (
     <CustomBox>
     <Container>
-      <Grid container my={12} spacing={4}>
+      <Grid container py={20} spacing={3}>
         {pricingData.map((x, index) => (
           <Grid item sm={12} md={6} lg={3} key={index}>
             <Box
@@ -317,7 +317,7 @@ function Pricing() {
                 background: selectedPackage === index ? "#212121" : "",
                 opacity: selectedPackage === index ? 1 : 0.4,
                 transform:
-                  selectedPackage === index ? "scale(1.09)" : "scale(1)",
+                  selectedPackage === index ? "scaleX(1.12) scaleY(1.04)" : "scale(1)",
                 transition: "all 0.3s ease-in-out",
               }}
               onClick={() => handlePackageClick(index)}
