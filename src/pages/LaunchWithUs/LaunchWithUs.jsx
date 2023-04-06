@@ -2,9 +2,9 @@ import { Box, Container, TextField, Typography } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import img from "../../assets/images/contact-page-img.jpg";
-import facebook from "../../assets/icons/social-media/facebook.svg";
-import twitter from "../../assets/icons/social-media/whatsapp.svg";
-import whatsapp from "../../assets/icons/social-media/twitter.svg";
+import facebook from "../../assets/icons/social-media/facebook.png";
+import twitter from "../../assets/icons/social-media/whatsapp.png";
+import whatsapp from "../../assets/icons/social-media/twitter.png";
 import CustomButton from "../../components/button";
 import map from "../../assets/images/map.png";
 
@@ -13,7 +13,7 @@ const MainSection = styled("div")(({ theme }) => ({
   gap: "2rem",
   paddingTop: "10rem",
   paddingTop: "12rem",
-  backgroundColor: "",
+  backgroundColor: "#303030",
 }));
 
 const CustomBox = styled("div")(({ theme }) => ({
@@ -52,19 +52,35 @@ const FormSection = styled("div")(({ theme }) => ({
   marginTop: "10rem",
   marginBottom: "10rem",
   maxWidth: "44.313rem",
+  backgroundColor:"#212121",
+  borderRadius:"0.25rem",
   "& .form": {
     padding: "3rem",
     color:"#212121",
     border: "1px solid transparent",
     borderRadius: "0.25rem",
     boxShadow: "0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important",
+    "& .formheading":{
+      fontSize:"1.5rem",
+      marginBottom:"1.5rem",
+      fontWeight:"400",
+      color:"#fff",
+      "& .bolder":{
+        borderBottom:"1px solid #fb8c00"
+      }
+    },
   },
+
 }));
 
 const FormBox = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: "2.25rem",
+  backgroundColor:"#212121",
+  "& .borderColor":{
+    borderBlockColor:"transparent",
+  }
 }));
 
 const MapBox = styled("div")(({ theme }) => ({
@@ -147,25 +163,23 @@ const LaunchWithUs = () => {
                 Give us a shout out
               </Typography>
               <MediaBox>
-                <a href="https://wa.me/+966569652777">
-                  <img
-                    src={whatsapp}
-                    className="socialLink"
-                    style={{ color: "#00acee" }}
-                  />
-                </a>
+              <a href="https://www.twitter.com/first.launch">
+              <img
+                src={twitter}
+                className="socialLink"
+              />
+            </a>
+               
                 <a href="https://www.facebook.com/first.launch/">
                   <img
                     src={facebook}
                     className="socialLink"
-                    style={{ color: "#00acee" }}
                   />
                 </a>
-                <a href="https://www.twitter.com/first.launch">
+                <a href="https://wa.me/+966569652777">
                   <img
-                    src={twitter}
+                    src={whatsapp}
                     className="socialLink"
-                    style={{ color: "#00acee" }}
                   />
                 </a>
               </MediaBox>
@@ -173,7 +187,8 @@ const LaunchWithUs = () => {
           </MainSection>
 
           <FormSection>
-            <form className="form" onSubmit={handleSubmit}>
+          <form className="form" onSubmit={handleSubmit}>
+          <Typography className="formheading"><span  className="bolder">Contact us directly</span></Typography>
               <FormBox>
                 <TextField
                   id="outlined-basic"
@@ -193,7 +208,8 @@ const LaunchWithUs = () => {
                   rows={6}
                 />
                 <CustomButton
-                  textColor="#fff "
+                className="borderColor"
+                  textColor="#767676"
                   color="#303030"
                   text="Submit"
                   type="submit"
