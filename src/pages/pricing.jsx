@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import { Grid, Typography, Box, Divider, List, ListItem } from "@mui/material";
 import CustomButton from "../components/button";
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 const btnSX = {
   "&:hover": {
@@ -302,11 +303,14 @@ function Pricing() {
   const handlePackageClick = (index) => {
     setSelectedPackage(index);
   };
-
+  const navigate = useNavigate()
+  const onClickHandler = () => {
+    navigate('/booking')
+  }
   return (
     <CustomBox>
     <Container>
-      <Grid container my={12} spacing={4}>
+      <Grid container py={20} spacing={3}>
         {pricingData.map((x, index) => (
           <Grid item sm={12} md={6} lg={3} key={index}>
             <Box
@@ -317,7 +321,7 @@ function Pricing() {
                 background: selectedPackage === index ? "#212121" : "",
                 opacity: selectedPackage === index ? 1 : 0.4,
                 transform:
-                  selectedPackage === index ? "scale(1.09)" : "scale(1)",
+                  selectedPackage === index ? "scaleX(1.12) scaleY(1.04)" : "scale(1)",
                 transition: "all 0.3s ease-in-out",
               }}
               onClick={() => handlePackageClick(index)}
@@ -338,6 +342,7 @@ function Pricing() {
               {/* {renderListItems(x.description[0])} */}
               <List sx={{ textAlign: "center", justifyContent:"center", alignItems:"center" }}>{ListItemsArr[index]}</List>
               <CustomButton
+              onClick={onClickHandler}
                 text="get started"
                 color="#db8c00"
                 textColor="#222"

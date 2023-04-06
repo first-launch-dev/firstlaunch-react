@@ -100,7 +100,8 @@ function Header(props) {
           <ListItem key={item} disablePadding>
             <ListItemButton
               onClick={(event) => scrollToSection(event, item.ref)}
-              sx={{ textAlign: "center" }}>
+              sx={{ textAlign: "center" }}
+              >
               <ListItemText primary={item.menu} />
             </ListItemButton>
           </ListItem>
@@ -164,8 +165,16 @@ function Header(props) {
                     color: "text.primary",
                     textTransform: "capitalize",
                     fontSize: 16,
+                    "&:hover": {
+                      color: "#fb8c22",
+                      background: "none"
+                    },
+                    "&:focus": {
+                      color: "#fb8c22",
+                    },
                   }}>
                   {item.menu}
+                  
                 </Button>
               ))}
             </Box>

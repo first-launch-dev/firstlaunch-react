@@ -95,7 +95,7 @@ const Booking = () => {
                         </Typography>
                         <Box px={2} mt={1} py={1} sx={{ bgcolor: "background.paper" }}>
                         <Typography component="p">
-                          <small>
+                          <small style={{fontSize: '12px'}}>
                           Only 2 slots available
                           </small>
                         </Typography>
@@ -105,7 +105,7 @@ const Booking = () => {
                         </Box>
                         <Box px={2} mt={1} py={1} sx={{ bgcolor: "background.paper" }}>
                         <Typography component="p">
-                          <small>
+                          <small sx={{fontSize: '12px'}}>
                           Only 2 slots available
                           </small>
                         </Typography>
@@ -115,7 +115,7 @@ const Booking = () => {
                         </Box>
                         <Box px={2} mt={1} py={1} sx={{ bgcolor: "background.paper" }}>
                         <Typography component="p">
-                          <small>
+                          <small sx={{fontSize: '12px'}}>
                           Only 2 slots available
                           </small>
                         </Typography>
@@ -125,7 +125,7 @@ const Booking = () => {
                         </Box>
                         <Box px={2} mt={1} py={1} sx={{ bgcolor: "background.paper" }}>
                         <Typography component="p">
-                          <small>
+                          <small sx={{fontSize: '12px'}}>
                           Only 2 slots available
                           </small>
                         </Typography>
@@ -135,7 +135,7 @@ const Booking = () => {
                         </Box>
                         <Box px={2} mt={1} py={1} sx={{ bgcolor: "background.paper" }}>
                         <Typography component="p">
-                          <small>
+                          <small sx={{fontSize: '12px'}}>
                           Only 2 slots available
                           </small>
                         </Typography>
@@ -145,7 +145,7 @@ const Booking = () => {
                         </Box>
                         <Box px={2} mt={1} py={1} sx={{ bgcolor: "background.paper" }}>
                         <Typography component="p">
-                          <small>
+                          <small sx={{fontSize: '12px'}}>
                           Only 2 slots available
                           </small>
                         </Typography>

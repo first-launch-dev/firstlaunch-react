@@ -1,9 +1,9 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import bannerImage from "../../assets/images/about-page-img.jpg";
-import facebook from "../../assets/icons/social-media/facebook.svg";
-import twitter from "../../assets/icons/social-media/whatsapp.svg";
-import whatsapp from "../../assets/icons/social-media/twitter.svg";
+import facebook from "../../assets/icons/social-media/facebook.png";
+import twitter from "../../assets/icons/social-media/whatsapp.png";
+import whatsapp from "../../assets/icons/social-media/twitter.png";
 import { makeStyles } from "@mui/styles";
 import styled from "styled-components";
 // import useStyles from "./styles";
@@ -32,7 +32,7 @@ const MainSection = styled("div")(({ theme }) => ({
     "& .mediabox":{
       display:"flex",
     alignItem:"center",
-    gap:"1rem",
+    gap:"2rem",
       "& .socialLink":{
         width: "1.5rem",
       }
@@ -95,15 +95,16 @@ const AboutUs = () => {
               </Typography>
 
               <Box className="mediabox">
-                <a href="https://twitter.com/first_launch">
-                  <img src={whatsapp} className="socialLink" />
-                </a>
+              <a href="https://www.youtube.com/@firstlaunchlit.co.forartis6847/videos">
+              <img src={twitter} className="socialLink" />
+            </a>
+              
                 <a href="https://www.instagram.com/first.launch/">
                   <img src={facebook} className="socialLink" />
                 </a>
-                <a href="https://www.youtube.com/@firstlaunchlit.co.forartis6847/videos">
-                  <img src={twitter} className="socialLink" />
-                </a>
+                <a href="https://twitter.com/first_launch">
+                <img src={whatsapp} className="socialLink" />
+              </a>
               </Box>
 
               
