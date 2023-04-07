@@ -95,11 +95,11 @@ const AboutUs = () => {
               </Typography>
 
               <Box className="mediabox">
-              <a href="https://www.youtube.com/@firstlaunchlit.co.forartis6847/videos">
+              <a onClick={() => window.open("https://wa.me/+966569652777")}>
               <img src={twitter} className="socialLink" />
             </a>
               
-                <a href="https://www.instagram.com/first.launch/">
+                <a href="https://www.facebook.com/first_launch/">
                   <img src={facebook} className="socialLink" />
                 </a>
                 <a href="https://twitter.com/first_launch">

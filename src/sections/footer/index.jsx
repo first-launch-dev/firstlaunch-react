@@ -83,17 +83,17 @@ const Footer = ({ setIsDark }) => {
                 <Typography variant="p" mt={2} component="p">
                   <a
                     className={classes.joinLinks}
-                    href="https://firstlaunch.pro/policy-and-terms-of-use/">
+                    href="privacy-policy">
                     Privacy Policy &nbsp; | &nbsp;{" "}
                   </a>
                   <a
                     className={classes.joinLinks}
-                    href="https://firstlaunch.pro/policy-and-terms-of-use/">
+                    href="terms-of-use">
                     Terms of Use &nbsp; | &nbsp;{" "}
                   </a>
                   <a
                     className={classes.joinLinks}
-                    href="https://firstlaunch.pro/policy-and-terms-of-use/">
+                    href="refund-policy">
                     Refund Policy
                   </a>
                 </Typography>

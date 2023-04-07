@@ -20,6 +20,9 @@ import LaunchWithUs from "./pages/LaunchWithUs/LaunchWithUs";
 import Pricing from "./pages/pricing";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import OurTeam from "./pages/OurTeam/OurTeam";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
+import RefundPolicy from "./pages/RefundPolicy";
 import Booking from "./pages/Booking/Booking";
 
 
@@ -137,6 +140,9 @@ function App() {
             <Route path="/pricing" element={<Pricing/>} />
             <Route path="/portfolio" element={<Portfolio/>} />
             <Route path="/ourteam" element={<OurTeam/>} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+            <Route path="/terms-of-use" element={<TermsOfUse/>} />
+            <Route path="/refund-policy" element={<RefundPolicy/>} />
             <Route path="/booking" element={<Booking/>} />
           </Routes>
         </Router>

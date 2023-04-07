@@ -290,9 +290,6 @@ const pricingData = [
 
 
 
-const CustomBox = styled("div")(({ theme }) => ({
-  backgroundColor: '#303030',
-}));
 
 
 
@@ -308,7 +305,7 @@ function Pricing() {
     navigate('/booking')
   }
   return (
-    <CustomBox>
+    <Box sx={{ bgcolor: "background.secondary" }}>
     <Container>
       <Grid container py={20} spacing={3}>
         {pricingData.map((x, index) => (
@@ -318,7 +315,7 @@ function Pricing() {
                 textAlign: "center",
                 border: "1px solid #fb8c00",
                 p: 2,
-                background: selectedPackage === index ? "#212121" : "",
+                // background: selectedPackage === index ? "#212121" : "",
                 opacity: selectedPackage === index ? 1 : 0.4,
                 transform:
                   selectedPackage === index ? "scaleX(1.12) scaleY(1.04)" : "scale(1)",
@@ -327,7 +324,7 @@ function Pricing() {
               onClick={() => handlePackageClick(index)}
             >
               <Box sx={{ m: 2 }}>
-                <Typography variant="h3" sx={{ mb: 1, color: "#fb8c00" }}>
+                <Typography variant="h3" sx={{ mb: 1, }}>
                   {x.packageName}
                 </Typography>
                 <Typography variant="subtitle1" sx={{ mb: 2 }}>
@@ -337,7 +334,7 @@ function Pricing() {
                   {x.price} / SAR
                 </Typography>
               </Box>
-              <Divider sx={{ mb: 2, background: "#fb8c00" }} />
+              <Divider sx={{ mb: 2,  }} />
 
               {/* {renderListItems(x.description[0])} */}
               <List sx={{ textAlign: "center", justifyContent:"center", alignItems:"center" }}>{ListItemsArr[index]}</List>
@@ -353,7 +350,7 @@ function Pricing() {
         ))}
       </Grid>
     </Container>
-    </CustomBox>
+    </Box>
   );
 }
 

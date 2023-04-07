@@ -13,7 +13,6 @@ const MainSection = styled("div")(({ theme }) => ({
   gap: "2rem",
   paddingTop: "10rem",
   paddingTop: "12rem",
-  backgroundColor: "#303030",
 }));
 
 const CustomBox = styled("div")(({ theme }) => ({
@@ -52,11 +51,10 @@ const FormSection = styled("div")(({ theme }) => ({
   marginTop: "10rem",
   marginBottom: "10rem",
   maxWidth: "44.313rem",
-  backgroundColor:"#212121",
+  backgroundColor:"background.paper",
   borderRadius:"0.25rem",
   "& .form": {
     padding: "3rem",
-    color:"#212121",
     border: "1px solid transparent",
     borderRadius: "0.25rem",
     boxShadow: "0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important",
@@ -64,7 +62,6 @@ const FormSection = styled("div")(({ theme }) => ({
       fontSize:"1.5rem",
       marginBottom:"1.5rem",
       fontWeight:"400",
-      color:"#fff",
       "& .bolder":{
         borderBottom:"1px solid #fb8c00"
       }
@@ -77,7 +74,7 @@ const FormBox = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   gap: "2.25rem",
-  backgroundColor:"#212121",
+  backgroundColor:"background.paper",
   "& .borderColor":{
     borderBlockColor:"transparent",
   }
@@ -163,20 +160,20 @@ const LaunchWithUs = () => {
                 Give us a shout out
               </Typography>
               <MediaBox>
-              <a href="https://www.twitter.com/first.launch">
+              <a onClick={() => window.open("https://wa.me/+966569652777")}>
               <img
                 src={twitter}
                 className="socialLink"
               />
             </a>
                
-                <a href="https://www.facebook.com/first.launch/">
+                <a href="https://www.facebook.com/first_launch/">
                   <img
                     src={facebook}
                     className="socialLink"
                   />
                 </a>
-                <a href="https://wa.me/+966569652777">
+                <a href="https://twitter.com/first_launch">
                   <img
                     src={whatsapp}
                     className="socialLink"
@@ -210,7 +207,7 @@ const LaunchWithUs = () => {
                 <CustomButton
                 className="borderColor"
                   textColor="#767676"
-                  color="#303030"
+                  color="background.overlay"
                   text="Submit"
                   type="submit"
                 ></CustomButton>
