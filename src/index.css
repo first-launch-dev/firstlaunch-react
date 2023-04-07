@@ -13,9 +13,10 @@ html {
   overflow-x: hidden
 }
 
-.track-img{
+.track-img {
   border: none !important;
 }
+
 .img-hover-zoom {
   height: 250px;
   width: 250px;
@@ -36,18 +37,20 @@ html {
   height: 250px;
   width: 250px;
 }
-.video-slider .slick-track{
+
+.video-slider .slick-track {
   width: 100% !important;
 }
 
-.video-slider .slick-slide{
+.video-slider .slick-slide {
   width: 100% !important;
 }
 
-.processLine{
+.processLine {
   position: relative;
 }
-.processLine::before{
+
+.processLine::before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -58,6 +61,7 @@ html {
   top: 30%;
   background: linear-gradient(90deg, rgba(13, 13, 13, 0) 0%, #f78628 100%);
 }
+
 div#box-3::before {
   width: 1px;
   height: 6rem;
@@ -75,3 +79,176 @@ div#box-3::before {
   top: 285px;
 }
 
+body {
+
+  margin: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden
+}
+
+
+
+
+
+html {
+
+  overflow-x: hidden
+}
+
+
+
+
+.track-img {
+
+  border: none !important;
+
+}
+
+.img-hover-zoom {
+
+  height: 250px;
+
+  width: 250px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  border: 5px solid #ff9800;
+
+  margin: 0 auto;
+
+}
+
+
+
+
+
+.img-hover-zoom--basic:hover img {
+
+  transform: scale(1.5);
+
+}
+
+
+
+
+.img-hover-zoom--basic img {
+
+  transition: transform .5s ease;
+
+  object-fit: cover;
+
+  height: 250px;
+
+  width: 250px;
+
+}
+
+.video-slider .slick-track {
+
+  width: 100% !important;
+
+}
+
+
+
+
+.video-slider .slick-slide {
+
+  width: 100% !important;
+
+}
+
+
+
+
+.processLine {
+
+  position: relative;
+
+}
+
+.processLine::before {
+
+  content: "";
+
+  display: inline-block;
+
+  position: absolute;
+
+  width: 10rem;
+
+  height: 1px;
+
+  left: 136px;
+
+  right: 0;
+
+  top: 30%;
+
+  background: linear-gradient(90deg, rgba(13, 13, 13, 0) 0%, #f78628 100%);
+
+}
+
+div#box-3::before {
+
+  width: 1px;
+
+  height: 6rem;
+
+  left: 50%;
+
+  right: unset;
+
+  top: 175px;
+
+  background: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, #f78628 100%);
+
+}
+
+
+
+
+div#box-4::before {
+
+  display: none;
+
+}
+
+
+
+
+div#box-3::before {
+
+  top: 285px;
+
+}
+
+
+
+
+div#box-6::before {
+
+  background: linear-gradient(-90deg, rgba(13, 13, 13, 0) 0%, #f78628 100%) !important;
+
+}
+
+
+
+
+div#box-5::before {
+
+  background: linear-gradient(-90deg, rgba(13, 13, 13, 0) 0%, #f78628 100%) !important;
+
+}
