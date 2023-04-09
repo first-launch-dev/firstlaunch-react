@@ -24,6 +24,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import RefundPolicy from "./pages/RefundPolicy";
 import Booking from "./pages/Booking/Booking";
+import Coordinator from "./pages/FooterFormPages/Coordinator";
+import PartnerShip from "./pages/FooterFormPages/PartnerShip";
 
 
 function App() {
@@ -144,6 +146,11 @@ function App() {
             <Route path="/terms-of-use" element={<TermsOfUse/>} />
             <Route path="/refund-policy" element={<RefundPolicy/>} />
             <Route path="/booking" element={<Booking/>} />
+            <Route path="/coordinators" element={<Coordinator heading="Coordinators Application"/>} />
+            <Route path="/collaborators" element={<Coordinator heading="Collaborators Application"/>} />
+            <Route path="/partnership" element={<PartnerShip/>} />
+            <Route path="/Individual-partnership" element={<Coordinator heading="Partnership Application"/>} />
+            <Route path="/Organization-partnership" element={<Coordinator heading="Partnership Application"/>} />
           </Routes>
         </Router>
         <Footer setIsDark={setIsDark} />
