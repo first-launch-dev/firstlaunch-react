@@ -49,13 +49,13 @@ const Footer = ({ setIsDark }) => {
                   JOIN US
                 </Typography>
                 <Typography variant="p" mt={2} component="p">
-                  <a className={classes.joinLinks} href="">
+                  <a className={classes.joinLinks} href="coordinators">
                     Coordinators |{" "}
                   </a>
-                  <a className={classes.joinLinks} href="">
+                  <a className={classes.joinLinks} href="collaborators">
                     Collaborators |{" "}
                   </a>
-                  <a className={classes.joinLinks} href="">
+                  <a className={classes.joinLinks} href="partnership">
                     Partnerships
                   </a>
                 </Typography>
