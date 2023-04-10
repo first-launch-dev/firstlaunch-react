@@ -23,6 +23,9 @@ import OurTeam from "./pages/OurTeam/OurTeam";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import RefundPolicy from "./pages/RefundPolicy";
+import Login from "./pages/Login/Login";
+import Coordinator from "./pages/FooterFormPages/Coordinator";
+import PartnerShip from "./pages/FooterFormPages/PartnerShip";
 import Booking from "./pages/Booking/Booking";
 
 import { useLocation } from 'react-router-dom'
