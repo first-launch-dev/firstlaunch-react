@@ -251,7 +251,7 @@ div#box-5::before {
 }
 
 .main {
-  background-image: url('./assets/images/login-page-img-2.jpg') !important;
+  background-image: url('./assets/images/login-page-img.jpeg') !important;
   background-size: cover !important;
   background-position: center !important;
   height: "657px"
