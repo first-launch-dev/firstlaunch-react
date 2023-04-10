@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 
@@ -244,11 +244,37 @@ div#box-6::before {
 
 }
 
-
-
-
 div#box-5::before {
 
   background: linear-gradient(-90deg, rgba(13, 13, 13, 0) 0%, #f78628 100%) !important;
 
+}
+
+.main {
+  background-image: url('./assets/images/login-page-img-2.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  height: "657px"
+}
+.main-signUp{
+  background-image: url('./assets/images/signup-page-img.jpeg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  height: "657px" !important
+}
+.borderColor-login{
+  border: none !important;
+  color: #FF9800;
+  background-color: #212121;
+  cursor: pointer;
+}
+.borderColor-login:hover{
+  border: none !important;
+  background-color: #212121;
+}
+.css-142t1bx-MuiButtonBase-root-MuiButton-root{
+  border: none !important;
+}
+.textfield__label{
+  color: aliceblue;
 }

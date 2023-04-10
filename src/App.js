@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { BrowserRouter as Router, Routes, Route, useNavigate, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate, RouterProvider, Switch } from "react-router-dom";
 import Header from "./sections/header";
 import Footer from "./sections/footer";
 import "slick-carousel/slick/slick.css";
@@ -24,7 +24,10 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import RefundPolicy from "./pages/RefundPolicy";
 import Booking from "./pages/Booking/Booking";
+import Login from "./pages/Login/Login";
 
+import { useLocation } from 'react-router-dom'
+import SignUp from "./pages/SignUp/SignUp";
 
 function App() {
   const [isArabic, setIsArabic] = useState(false);
@@ -36,7 +39,38 @@ function App() {
   const ourTeam = useRef(null);
   const banner = useRef(null);
   const services = useRef(null);
-  // const navigate = useNavigate()
+ 
+  // const location = useLocation();
+  // console.log(location.pathname);
+
+  const HeaderApp =() => {
+    let location = useLocation();
+    console.log(location.pathname,"pathname");
+    const pathname = location.pathname
+    return( pathname === "/login" || pathname === "/signUp" ? <></>:  <Header
+    banner={banner}
+    setFade={setFade}
+    launchWithUs={launchWithUs}
+    aboutUs={aboutUs}
+    talentTrack={talentTrack}
+    ourTeam={ourTeam}
+    services={services}
+    scrollToSection={scrollToSection}
+    setIsArabic={setIsArabic}
+    
+  />)
+  }
+
+
+  const FooterApp = () => {
+
+    let location = useLocation();
+    console.log(location.pathname,"pathname");
+    const pathname = location.pathname
+    return(pathname === '/login' || pathname === '/signUp' ? <></> : <Footer setIsDark={setIsDark} /> )
+  }
+
+
   const light = {
     palette: {
       mode: "light",
@@ -95,9 +129,9 @@ function App() {
     <>
       <ThemeProvider theme={createTheme(isDark ? dark : light)}>
        
-       
+  
         <Router>
-        <Header
+         {/* <Header
           banner={banner}
           setFade={setFade}
           launchWithUs={launchWithUs}
@@ -108,7 +142,9 @@ function App() {
           scrollToSection={scrollToSection}
           setIsArabic={setIsArabic}
           
-        />
+        />  */}
+       
+       <HeaderApp />
           <Routes>
             <Route
               path="/"
@@ -141,12 +177,16 @@ function App() {
             <Route path="/portfolio" element={<Portfolio/>} />
             <Route path="/ourteam" element={<OurTeam/>} />
             <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+            <Route path="/signUp" element={<SignUp/>} />
+            <Route path="/login" element={<Login/>} />
             <Route path="/terms-of-use" element={<TermsOfUse/>} />
             <Route path="/refund-policy" element={<RefundPolicy/>} />
             <Route path="/booking" element={<Booking/>} />
           </Routes>
+          <FooterApp/>
         </Router>
-        <Footer setIsDark={setIsDark} />
+        
+        {/* <Footer setIsDark={setIsDark} /> */}
       </ThemeProvider>
     </>
   );

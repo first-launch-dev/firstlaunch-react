@@ -23,6 +23,7 @@ import {  Router } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const drawerWidth = 240;
 
@@ -50,9 +51,18 @@ function Header(props) {
     // { menu: "Services", ref: services}
    
   ];
+//   const location = useLocation();
+//   console.log(location.pathname);
+//  const pathname = location.pathname
   const pageToView = (e, route) => {
     e.preventDefault();
     navigate(route);
+  }
+  const routeToLogin = () => {
+    navigate('/login')
+  }
+  const routeToSignUp = () => {
+    navigate('/signUp')
   }
   const pageItems = [
     { menu: "Home", route: '/' },
@@ -62,7 +72,7 @@ function Header(props) {
     { menu: "Our Team", route: "/ourteam" },
     { menu: "About us", route: "/aboutUs" },
     { menu: "Launch With Us", route: "/launchwithus" },
-    // { menu: "Talent Track", ref: talentTrack },
+    // { menu: "Login", route: "/login" },
     // { menu: "Our Team", ref: ourTeam },
   ]
   // const classes = useStyles();
@@ -70,7 +80,7 @@ function Header(props) {
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
+  const { loginWithRedirect } = useAuth0();
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -113,6 +123,7 @@ function Header(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+   
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -219,11 +230,13 @@ function Header(props) {
                   <img src="assets/usa.png" width={20} alt="" /> &nbsp; English
                 </MenuItem>
               </Menu>
-              <CustomButton text="Login" customSx={{ color: "text.primary" }} />
+              {/* onClick={() => loginWithRedirect()} */}
+              <CustomButton text="Login" onClick={routeToLogin}  customSx={{ color: "text.primary" }} />
               <CustomButton
                 color="#ff9800"
                 customSx={{ ml: 1, color: "text.primary" }}
                 text="Sign Up"
+                onClick={routeToSignUp}
               />
             </Box>
           </Toolbar>
@@ -251,6 +264,7 @@ function Header(props) {
     </Box>
   );
 }
+
 
 Header.propTypes = {
   /**
