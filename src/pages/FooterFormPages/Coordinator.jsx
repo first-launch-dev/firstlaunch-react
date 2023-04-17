@@ -2,13 +2,13 @@ import { Container, Grid, MenuItem } from "@mui/material";
 import { Box, TextField, Typography } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
-import styled from "styled-components";
 import CustomButton from "../../components/button";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import styled from "@emotion/styled";
 
 const MainSection = styled("div")(({ theme }) => ({
   paddingTop: "8rem",
@@ -47,9 +47,18 @@ const FormBox = styled("div")(({ theme }) => ({
     display: "flex",
     gap: "1.25rem",
     width: "40.5rem",
+    [theme.breakpoints.down("sm")]:{
+      flexDirection:"column"
+    },
     "& .feild": {
       maxWidth: "18.5rem",
       width: "100%",
+      [theme.breakpoints.down("400")]:{
+        maxWidth:"15.313rem"
+      },
+      [theme.breakpoints.down("330")]:{
+        maxWidth:"11.875rem"
+      }
     },
   },
   "& .borderColor": {

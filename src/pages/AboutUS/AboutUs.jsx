@@ -4,14 +4,16 @@ import bannerImage from "../../assets/images/about-page-img.jpg";
 import facebook from "../../assets/icons/social-media/facebook.png";
 import twitter from "../../assets/icons/social-media/whatsapp.png";
 import whatsapp from "../../assets/icons/social-media/twitter.png";
-import { makeStyles } from "@mui/styles";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 // import useStyles from "./styles";
 
 const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
   alignItem: "center",
   gap:"1rem",
+  [theme.breakpoints.down("md")]:{
+    flexDirection:"column-reverse",
+  },
   "& .section": {
     display: "flex",
     flexDirection: "column",

@@ -87,7 +87,7 @@ const Services = ({talentTrack}) => {
     ]
 
     return (
-        <Box ref={talentTrack} sx={{ bgcolor: 'background.secondary' }} pt={8} pb={8}>
+        <Box ref={talentTrack} sx={{ bgcolor: 'background.secondary' }} pt={12} pb={8}>
             <Container sx={{ position: 'relative' }}>
                 <Box textAlign="center">
                     <Typography className={classes.serviceHeading} variant="h4" component="h4" mb={7}>Services</Typography>
