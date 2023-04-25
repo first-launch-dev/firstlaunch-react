@@ -87,7 +87,7 @@ const Services = ({talentTrack}) => {
     ]
 
     return (
-        <Box ref={talentTrack} sx={{ bgcolor: 'background.secondary' }} pt={8} pb={8}>
+        <Box ref={talentTrack} sx={{ bgcolor: 'background.secondary' }} pt={12} pb={8}>
             <Container sx={{ position: 'relative' }}>
                 <Box textAlign="center">
                     <Typography className={classes.serviceHeading} variant="h4" component="h4" mb={7}>Services</Typography>
@@ -96,7 +96,7 @@ const Services = ({talentTrack}) => {
                     {
                         services.map((item, index) =>
                             <Grid  key={index} lg={4} md={4} sm={6} xs={12} mt={4}>
-                                <ServiceCard onClick={() => {goToPage(item?.route);console.log("item",item?.route)}} dataOS={item.dataOS} title={item.title} titleColor={item.titleColor} text={item?.text} img={item.img} />
+                                <ServiceCard onClick={() => {goToPage(item?.route);}} dataOS={item.dataOS} title={item.title} titleColor={item.titleColor} text={item?.text} img={item.img} />
                             </Grid>
                         )
                     }

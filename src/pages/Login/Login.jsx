@@ -47,7 +47,7 @@ function Login() {
       
   return (
     <>
-   <section className="main" style={{height: "657px"}}>
+   <section className="main" style={{height: "100vh"}}>
    <div className="form-section" style={{    position: "relative",
     top: "23%",
     left: "66%",

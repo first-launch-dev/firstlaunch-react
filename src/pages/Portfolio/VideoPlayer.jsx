@@ -1,5 +1,5 @@
 // * Libraries
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useRef } from "react";
 import ReactPlayer from "react-player/lazy";
 // import { toggleFullScreen } from 'utils/misc';
 // import { useSelector, useDispatch } from 'react-redux'
@@ -108,7 +108,6 @@ const CustomBox = styled(Box)(({ theme }) => ({
       padding: "1rem",
     },
     "& .start": {
-      display: "inline-block",
       borderRadius: "6px",
       width: "200px",
       height: "60px",
@@ -129,7 +128,6 @@ const CustomBox = styled(Box)(({ theme }) => ({
       },
     },
     "& .resume": {
-      display: "inline-block",
       borderRadius: "6px",
       width: "200px",
       height: "60px",
@@ -285,7 +283,6 @@ const VideoPlayer = React.memo(({ src, img }) => {
   ////             const interval = setInterval(function () {
   ////                 // setPlayed(videoElement?.currentTime)
   ////                 setPlayed(videoElement?.currentTime)
-  ////                 //// console.log("videoElement.currentTime==>", videoElement.currentTime)
   ////             });
   ////             return () => {
   ////                 clearInterval(interval)
@@ -304,7 +301,6 @@ const VideoPlayer = React.memo(({ src, img }) => {
   //     if (isEmpty(lastCompletedProgress) && !isEmpty(duration))
   //         return
 
-  //     // console.log("Video Player Progress", { duration }, { lastCompletedProgress }, lastCompletedProgress >= duration)
 
   //     //// if (currentTopicSelected.details.lastCompletedProgressCompleted >= duration)
   //     if (currentTopicSelected?.progress?.complete >= duration) seekTo(0) // watched the whole video or completed before
@@ -318,7 +314,6 @@ const VideoPlayer = React.memo(({ src, img }) => {
 
   // const handleDuration = (duration) => {
   //     //? Gets total duration of video after isStarted true
-  //     // console.log('Video Player onDuration', duration)
   //     // setDuration(duration)
   // }
   // const handleEnded = async () => {
@@ -338,7 +333,6 @@ const VideoPlayer = React.memo(({ src, img }) => {
   //     );
   // }
   // const handlePlay = () => {
-  //     // console.log("OnPlay-->HANDLE_ON_PLAY")
   //     // alert("PLAYED")
   //     setIsClicked(true)
   //     setTimeout(() => {
@@ -351,7 +345,6 @@ const VideoPlayer = React.memo(({ src, img }) => {
   //     setTimeout(() => {
   //         setIsClicked(false)
   //     }, 300);
-  //     // console.log('Video Player onPause')
   // }
   // const handlePlayPause = () => {
   //     setIsPlaying(!isPlaying)
@@ -394,7 +387,6 @@ const VideoPlayer = React.memo(({ src, img }) => {
   // }
 
   // const handleError = () => {
-  //     // console.log('Video Player handleError')
   // }
   // const showResumeVideoBtn = () => {
   //     if (currentTopicSelected?.progress?.complete > 0 && !currentTopicSelected?.progress?.isCompleted) {
@@ -444,7 +436,6 @@ const VideoPlayer = React.memo(({ src, img }) => {
   //         setLoaded(Math.round(progress.playedSeconds + progress.loaded))
   //     }
   //     if (isAbleToProgress && progressCount >= 50) {
-  //         // console.log("Video Player Progress Dispatched", "Played::", progress.playedSeconds)
   //         //? IF WE SET DURATION to 10000 THEN PROGRESSBAR WILL UPDATE AFTER 10s,
   //         //? IF WE SET DURATION to 200 THEN WHAT ABOUT ABOUT API CALL?
 
@@ -493,7 +484,6 @@ const VideoPlayer = React.memo(({ src, img }) => {
   //     }
   // }
   // const handleClickStartOver = () => {
-  //     // console.log("handleClickStartOver-->", "Played", played)
   //     setStartOver(true)
   //     seekTo(0)
   //     handleUnlockSubtraction()
@@ -560,7 +550,6 @@ const VideoPlayer = React.memo(({ src, img }) => {
                 }
 
             </div>} */}
-      {console.log("videoPlayer")}
       {/* onTransitionEnd={() => setIsClicked(false)} */}
       <ReactPlayer
         ref={videoPlayerRef}
@@ -582,7 +571,7 @@ const VideoPlayer = React.memo(({ src, img }) => {
         fallback={<VideoSkeleton />}
         // onProgress={handleProgress}
         // onDuration={handleDuration}
-        //// onSeek={val => console.log("onSeek ",val)}
+        //// onSeek={val => {}}
         // onReady={() => setIsReady(true)}
         // onStart={handleStart}
         // onEnded={handleEnded}
@@ -592,7 +581,7 @@ const VideoPlayer = React.memo(({ src, img }) => {
         // onBuffer={() => setBuffer(true)}
         // onBufferEnd={() => setBuffer(false)}
 
-        //// onClickPreview={e => console.log("preview", e)}
+        //// onClickPreview={e => }
       />
       {/* {isStarted &&
                 <CustomVideoPlayerControls

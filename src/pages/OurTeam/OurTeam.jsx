@@ -1,6 +1,5 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import styled from "styled-components";
 import img1 from "../../assets/images/team/Abdullah Alnashri/1.png";
 import img2 from "../../assets/images/team/Adel Zaki/2.png";
 import img3 from "../../assets/images/team/Ahmad Qandil/3.png";
@@ -19,12 +18,14 @@ import img15 from "../../assets/images/team/Rawan Hussain/18.png";
 import img16 from "../../assets/images/team/Saleh Kashogji/19.png";
 import img17 from "../../assets/images/team/Shahad Bajaafar/20.png";
 import img18 from "../../assets/images/team/Turkan Alayoubi/21.png";
+import styled from "@emotion/styled";
 
 const MainSection = styled("div")(({ theme }) => ({
   paddingTop: "12rem",
   paddingBottom: "10rem",
   "& .gridLayout": {
     marginTop: "5rem",
+    textAlign:"center"
   },
   "& .heading": {
     fontSize: "2.125rem",
@@ -40,6 +41,9 @@ const MainSection = styled("div")(({ theme }) => ({
     maxWidth: "21rem",
     marginLeft:"auto",
     marginRight:"auto",
+    [theme.breakpoints.down("340")]:{
+      maxWidth: "17rem",
+    },
 
   },
   "& .name": {

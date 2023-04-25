@@ -42,12 +42,9 @@ function App() {
   const banner = useRef(null);
   const services = useRef(null);
  
-  // const location = useLocation();
-  // console.log(location.pathname);
 
   const HeaderApp =() => {
     let location = useLocation();
-    console.log(location.pathname,"pathname");
     const pathname = location.pathname
     return( pathname === "/login" || pathname === "/signUp" ? <></>:  <Header
     banner={banner}
@@ -67,7 +64,6 @@ function App() {
   const FooterApp = () => {
 
     let location = useLocation();
-    console.log(location.pathname,"pathname");
     const pathname = location.pathname
     return(pathname === '/login' || pathname === '/signUp' ? <></> : <Footer setIsDark={setIsDark} /> )
   }

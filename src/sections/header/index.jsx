@@ -52,7 +52,6 @@ function Header(props) {
    
   ];
 //   const location = useLocation();
-//   console.log(location.pathname);
 //  const pathname = location.pathname
   const pageToView = (e, route) => {
     e.preventDefault();

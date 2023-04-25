@@ -23,9 +23,6 @@ const renderListItems = (forPackage) => {
     <List sx={{ textAlign: "center" }}>
       {forPackage.unmuted.map((y, idxx) => {
         <ListItem index={idxx}>{y}</ListItem>;
-        {
-          console.log("y >> ", idxx, y);
-        }
       })}
     </List>
   );
@@ -245,7 +242,7 @@ const pricingData = [
           "High-End Cinematographer",
           "Expanded Filming Crew",
           "Music Clearances / Custom Music",
-          "Stock Shots (Video or Photos)",
+          "Up to (5) Stock Shots (Video or Photos) Included",
         ],
       },
     ],
@@ -309,7 +306,7 @@ function Pricing() {
     <Container>
       <Grid container py={20} spacing={3}>
         {pricingData.map((x, index) => (
-          <Grid item sm={12} md={6} lg={3} key={index}>
+          <Grid item xs={12} sm={6} md={6} lg={3} key={index}>
             <Box
               sx={{
                 textAlign: "center",
@@ -337,7 +334,10 @@ function Pricing() {
               <Divider sx={{ mb: 2,  }} />
 
               {/* {renderListItems(x.description[0])} */}
-              <List sx={{ textAlign: "center", justifyContent:"center", alignItems:"center" }}>{ListItemsArr[index]}</List>
+              <Box sx={{display:"flex",justifyContent:"center"}}>
+              <List>{ListItemsArr[index]}</List>
+              </Box>
+              
               <CustomButton
               onClick={onClickHandler}
                 text="get started"

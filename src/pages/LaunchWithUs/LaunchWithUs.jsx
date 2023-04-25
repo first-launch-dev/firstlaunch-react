@@ -1,18 +1,21 @@
 import { Box, Container, TextField, Typography } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
 import img from "../../assets/images/contact-page-img.jpg";
 import facebook from "../../assets/icons/social-media/facebook.png";
 import twitter from "../../assets/icons/social-media/whatsapp.png";
 import whatsapp from "../../assets/icons/social-media/twitter.png";
 import CustomButton from "../../components/button";
 import map from "../../assets/images/map.png";
+import styled from "@emotion/styled";
 
 const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
   gap: "2rem",
   paddingTop: "10rem",
   paddingTop: "12rem",
+  [theme.breakpoints.down("md")]:{
+    flexDirection:"column",
+  },
 }));
 
 const CustomBox = styled("div")(({ theme }) => ({
@@ -95,7 +98,6 @@ const LaunchWithUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ firstName, lastName, email });
   };
 
   //   const mapRef = useRef(null); // reference to the map div element

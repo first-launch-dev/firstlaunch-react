@@ -278,3 +278,9 @@ div#box-5::before {
 .textfield__label{
   color: aliceblue;
 }
+p.form-error {
+    margin: -30px 0 0 0;
+    font: inherit;
+    color: #990000;
+    font-size: 12px;
+}

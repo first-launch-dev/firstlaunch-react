@@ -1,6 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
 import React from "react";
-import styled from "styled-components";
 import ReactPlayer from "react-player/lazy";
 import VideoPlayer from "./VideoPlayer";
 
@@ -68,6 +67,7 @@ import img57 from "../../assets/images/flyers/banner/57.jpg";
 import img58 from "../../assets/images/flyers/banner/58.jpg";
 import img59 from "../../assets/images/flyers/banner/59.jpg";
 import img60 from "../../assets/images/flyers/banner/60.jpg";
+import styled from "@emotion/styled";
 
 //import Masonry from '@mui/lab/Masonry'
 
@@ -96,9 +96,23 @@ const PictureSection = styled("div")(({ theme }) => ({
   alignItems:"center",
   gap:"1rem",
   marginBottom:"1rem",
+  [theme.breakpoints.down("md")]:{
+    maxWidth:"46.875rem"
+  },
+  [theme.breakpoints.down("sm")]:{
+    maxWidth:"19.375rem"
+  },
   "& .images":{
     width:"17.979rem",
     height:"19rem",
+    [theme.breakpoints.down("md")]:{
+      maxWidth:"14.25rem",
+      height:"17rem",
+    },
+    [theme.breakpoints.down("sm")]:{
+      maxWidth:"5.25rem",
+      height:"10rem",
+    },
   }
   
     }));
@@ -106,7 +120,7 @@ const PictureSection = styled("div")(({ theme }) => ({
 function Portfolio() {
   return (
     <Box sx={{ bgcolor: "background.secondary" }}>
-      <Container>
+      <Container maxWidth="lg">
         <MainSection>
           <CustomBox>
             <Box className="playerBox">
