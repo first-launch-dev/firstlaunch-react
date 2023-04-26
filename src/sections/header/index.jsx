@@ -97,6 +97,10 @@ function Header(props) {
     setAccountAnchorEl(null);
   };
 
+
+  const logoutHandler = () => {
+    props.logout(navigate('/login'));
+  }
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography
@@ -264,9 +268,7 @@ function Header(props) {
                 }}
                 open={Boolean(accountAnchorEl)}
                 onClose={handleAccountClose}>
-                <MenuItem onClick={()=>{
-                  props.logout().then(()=>{navigate('/login')});
-                }}>
+                <MenuItem onClick={logoutHandler}>
                   Logout
                 </MenuItem>
               </Menu>

@@ -59,9 +59,7 @@ function Login(props) {
       let formData = new FormData();
       formData.append('email', formFields.email);
       formData.append('password', formFields.password);
-      props.login(formData).then(()=>{
-        navigate('/dashboard')
-      })      
+      props.login(formData, navigate('/dashboard'))
     }
   return (
     <>

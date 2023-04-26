@@ -6,7 +6,7 @@ import {
   displayMessageAction,
 } from "./commonActions";
 
-const registerAction = (data) => (dispatch) => {
+const registerAction = (data, navigate) => (dispatch) => {
   dispatch(formLoaderAction(1));
   return AuthService.register(data).then(
     (response) => {
@@ -20,6 +20,7 @@ const registerAction = (data) => (dispatch) => {
       });
       dispatch(formLoaderAction(0));
       dispatch(displayMessageAction('Registered Successfuly'));
+      navigate();
       return Promise.resolve();
     },
     (error) => {
@@ -31,7 +32,7 @@ const registerAction = (data) => (dispatch) => {
 };
 
 
-const loginAction = (data) => (dispatch) => {
+const loginAction = (data, navigate) => (dispatch) => {
   dispatch(formLoaderAction(1));
 
   return AuthService.login(data).then(
@@ -45,6 +46,7 @@ const loginAction = (data) => (dispatch) => {
       });
       dispatch(formLoaderAction(0));
       dispatch(displayMessageAction("Login Successfuly"));
+      navigate();
       return Promise.resolve();
     },
     (error) => {
@@ -56,7 +58,7 @@ const loginAction = (data) => (dispatch) => {
 };
 
 
-const logoutAction = () => (dispatch, getState) => {
+const logoutAction = (navigate) => (dispatch, getState) => {
   dispatch(formLoaderAction(1));
   const token = getState().auth.user.access_token;
   return AuthService.logout(token).then(
@@ -66,6 +68,7 @@ const logoutAction = () => (dispatch, getState) => {
       });
       dispatch(formLoaderAction(0));
       dispatch(displayMessageAction("Logout Successfuly"));
+      navigate();
       return Promise.resolve();
     },
     (error) => {

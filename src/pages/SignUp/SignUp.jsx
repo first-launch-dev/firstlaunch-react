@@ -27,9 +27,7 @@ import {registerAction} from 'redux/actions/authAction';
       formData.append('email', formFields.email);
       formData.append('password', formFields.password);
       formData.append('password_confirmation', formFields.password_confirmation);
-      props.register(formData).then(()=>{
-        navigate('/dashboard')
-      })      
+      props.register(formData, navigate('/dashboard'))
     }
   return (
     <>
