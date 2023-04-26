@@ -1,5 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -18,12 +19,10 @@ import Button from "@mui/material/Button";
 import CustomButton from "../../components/button/index";
 import GTranslateIcon from "@mui/icons-material/GTranslate";
 import { Menu, MenuItem } from "@mui/material";
-import {  Router } from "react-router-dom";
 // import useStyles from './style';
 import { useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const drawerWidth = 240;
 
@@ -79,7 +78,6 @@ function Header(props) {
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const { loginWithRedirect } = useAuth0();
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -105,7 +103,7 @@ function Header(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
+        {pageItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton
               onClick={(event) => scrollToSection(event, item.ref)}
@@ -155,18 +153,6 @@ function Header(props) {
               />
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => (
-                <Button
-                  key={item}
-                  onClick={(event) => scrollToSection(event , item.ref)}
-                  sx={{
-                    color: "text.primary",
-                    textTransform: "capitalize",
-                    fontSize: 16,
-                  }}>
-                  {item.menu}
-                </Button>
-              ))}
                 {pageItems.map((item) => (
                 <Button
                   key={item}
@@ -272,5 +258,9 @@ Header.propTypes = {
    */
   window: PropTypes.func,
 };
+
+
+
+
 
 export default Header;
