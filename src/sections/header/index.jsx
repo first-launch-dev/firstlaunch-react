@@ -191,28 +191,7 @@ function Header(props) {
                 color={theme.palette.text.primary}>
                 <GTranslateIcon color={theme.palette.text.primary} />
               </IconButton>
-              <IconButton
-                sx={{ marginRight: 3, borderRadius: '0' }}
-                size="large"
-                onClick={handleAccountMenu}
-                color={theme.palette.text.primary}>
-                <Typography
-                  variant="p"
-                  component="p"
-                  sx={{ display: { xs: "none", sm: "block" },
-                      color: "text.primary",
-                      textTransform: "capitalize",
-                      fontSize: 16,
-                      "&:hover": {
-                        color: "#fb8c22",
-                        background: "none"
-                      },
-                      "&:focus": {
-                        color: "#fb8c22",
-                      }}}>
-                  {props.auth.user.name} 
-                </Typography> 
-              </IconButton>
+
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
@@ -246,7 +225,29 @@ function Header(props) {
                   <img src="assets/usa.png" width={20} alt="" /> &nbsp; English
                 </MenuItem>
               </Menu>
-
+              {props.auth.isLoggedIn && (<>
+              <IconButton
+                sx={{ marginRight: 3, borderRadius: '0' }}
+                size="large"
+                onClick={handleAccountMenu}
+                color={theme.palette.text.primary}>
+                <Typography
+                  variant="p"
+                  component="p"
+                  sx={{ display: { xs: "none", sm: "block" },
+                      color: "text.primary",
+                      textTransform: "capitalize",
+                      fontSize: 16,
+                      "&:hover": {
+                        color: "#fb8c22",
+                        background: "none"
+                      },
+                      "&:focus": {
+                        color: "#fb8c22",
+                      }}}>
+                  {props.auth.user.name} 
+                </Typography> 
+              </IconButton>
               <Menu
                 id="menu-account"
                 anchorEl={accountAnchorEl}
@@ -265,7 +266,7 @@ function Header(props) {
                   Logout
                 </MenuItem>
               </Menu>
-              
+              </>)}
               {/* onClick={() => loginWithRedirect()} */}
               {!props.auth.isLoggedIn && (
 <>              <CustomButton text="Login" onClick={routeToLogin}  customSx={{ color: "text.primary" }} />
