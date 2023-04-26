@@ -85,6 +85,16 @@ function Header(props) {
     setMobileOpen((prevState) => !prevState);
   };
 
+
+  
+  const [accountAnchorEl, setAccountAnchorEl] = React.useState(null);
+  const handleAccountMenu = (event) => {
+    setAccountAnchorEl(event.currentTarget);
+  };
+  const handleAccountClose = () => {
+    setAccountAnchorEl(null);
+  };
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography
@@ -154,24 +164,23 @@ function Header(props) {
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 {pageItems.map((item) => (
-                <Button
-                  key={item}
-                  onClick={(event) => pageToView(event , item.route)}
-                  sx={{
-                    color: "text.primary",
-                    textTransform: "capitalize",
-                    fontSize: 16,
-                    "&:hover": {
-                      color: "#fb8c22",
-                      background: "none"
-                    },
-                    "&:focus": {
-                      color: "#fb8c22",
-                    },
-                  }}>
-                  {item.menu}
-                  
-                </Button>
+                  <Button
+                    key={item}
+                    onClick={(event) => pageToView(event , item.route)}
+                    sx={{
+                      color: "text.primary",
+                      textTransform: "capitalize",
+                      fontSize: 16,
+                      "&:hover": {
+                        color: "#fb8c22",
+                        background: "none"
+                      },
+                      "&:focus": {
+                        color: "#fb8c22",
+                      },
+                    }}>
+                    {item.menu}
+                  </Button>
               ))}
             </Box>
             <Box>
@@ -181,6 +190,28 @@ function Header(props) {
                 onClick={handleMenu}
                 color={theme.palette.text.primary}>
                 <GTranslateIcon color={theme.palette.text.primary} />
+              </IconButton>
+              <IconButton
+                sx={{ marginRight: 3, borderRadius: '0' }}
+                size="large"
+                onClick={handleAccountMenu}
+                color={theme.palette.text.primary}>
+                <Typography
+                  variant="p"
+                  component="p"
+                  sx={{ display: { xs: "none", sm: "block" },
+                      color: "text.primary",
+                      textTransform: "capitalize",
+                      fontSize: 16,
+                      "&:hover": {
+                        color: "#fb8c22",
+                        background: "none"
+                      },
+                      "&:focus": {
+                        color: "#fb8c22",
+                      }}}>
+                  {props.auth.user.name} 
+                </Typography> 
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -215,14 +246,37 @@ function Header(props) {
                   <img src="assets/usa.png" width={20} alt="" /> &nbsp; English
                 </MenuItem>
               </Menu>
+
+              <Menu
+                id="menu-account"
+                anchorEl={accountAnchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(accountAnchorEl)}
+                onClose={handleAccountClose}>
+                <MenuItem>
+                  Logout
+                </MenuItem>
+              </Menu>
+              
               {/* onClick={() => loginWithRedirect()} */}
-              <CustomButton text="Login" onClick={routeToLogin}  customSx={{ color: "text.primary" }} />
+              {!props.auth.isLoggedIn && (
+<>              <CustomButton text="Login" onClick={routeToLogin}  customSx={{ color: "text.primary" }} />
               <CustomButton
                 color="#ff9800"
                 customSx={{ ml: 1, color: "text.primary" }}
                 text="Sign Up"
                 onClick={routeToSignUp}
-              />
+              /></>
+              )}
+
             </Box>
           </Toolbar>
         </Container>
@@ -262,5 +316,10 @@ Header.propTypes = {
 
 
 
+const mapStatesToProps = (state) => ({
+  auth: state.auth,
+  common: state.common
+})
 
-export default Header;
+
+export default connect(mapStatesToProps)(Header);

@@ -21,6 +21,21 @@ const authReducer = (state = initialState, action) => {
         isLoggedIn: false,
         user: null,
       };
+    
+    // Login
+    case t.LOGIN_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: true,
+        user: payload,
+      };
+    case t.LOGIN_FAIL:
+      return {
+        ...state,
+        isLoggedIn: false,
+        user: null,
+      };
+      
     // DEFAULT
     default:
       return state;

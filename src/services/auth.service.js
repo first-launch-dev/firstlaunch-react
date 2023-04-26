@@ -13,7 +13,6 @@ const login = (data) => {
   return axios.post(API_URL + "/login", data);
 };
 
-
 const AuthService = {
   register,
   login

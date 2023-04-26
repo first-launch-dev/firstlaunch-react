@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Routes, Route } from "react-router-dom";
@@ -29,12 +30,12 @@ import Coordinator from "./pages/FooterFormPages/Coordinator";
 import PartnerShip from "./pages/FooterFormPages/PartnerShip";
 import Booking from "./pages/Booking/Booking";
 import SignUp from "./pages/SignUp/SignUp";
-
 import { ToastContainer, toast } from "react-toastify";
 import { setMessage, resetFormErrorsAction } from "redux/actions/commonActions";
+import Guest from "middleware/Guest";
 
 
-function App({common, setMessage, resetErrors}) {
+function App({common, setMessage, resetErrors, auth}) {
   const [isArabic, setIsArabic] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [fade, setFade] = useState(false);
@@ -72,8 +73,6 @@ function App({common, setMessage, resetErrors}) {
     
   />)
   }
-
-
   const FooterApp = () => {
 
     let location = useLocation();
@@ -177,8 +176,8 @@ function App({common, setMessage, resetErrors}) {
             <Route path="/portfolio" element={<Portfolio/>} />
             <Route path="/ourteam" element={<OurTeam/>} />
             <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
-            <Route path="/signUp" element={<SignUp/>} />
-            <Route path="/login" element={<Login/>} />
+            <Route path="/signUp" element={<Guest isLoggedIn={auth.isLoggedIn}><SignUp/></Guest>} />
+            <Route path="/login" element={<Guest isLoggedIn={auth.isLoggedIn}><Login/></Guest>} />
             <Route path="/terms-of-use" element={<TermsOfUse/>} />
             <Route path="/refund-policy" element={<RefundPolicy/>} />
             <Route path="/booking" element={<Booking/>} />
@@ -206,6 +205,7 @@ function App({common, setMessage, resetErrors}) {
 
 const mapStateToProps = (state) => ({
   common: state.common,
+  auth: state.auth
 });
 const mapDispatchToProps = (dispatch) => ({
   setMessage: (data) => dispatch(setMessage(data)),

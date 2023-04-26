@@ -30,10 +30,7 @@ const setMessage = (data) => (dispatch) => {
 const displayErrorsAction =
   (error, actionToDispatch = null) =>
   (dispatch) => {
-    const message =
-      (error.response && error.response.data && error.response.data.message) ||
-      error.message ||
-      error.toString();
+
     if (actionToDispatch) {
       dispatch({
         type: actionToDispatch,
@@ -42,6 +39,10 @@ const displayErrorsAction =
     if (error.response && error.response.data && error.response.data.errors) {
       dispatch(setFormErrorsAction(error.response.data.errors));
     } else {
+      const message =
+        (error.response && error.response.data && error.response.data.message) ||
+        error.message ||
+        error.toString();
       dispatch(setMessage({ message, type: "error" }));
     }
   };

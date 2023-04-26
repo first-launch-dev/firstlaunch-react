@@ -30,6 +30,32 @@ const registerAction = (data) => (dispatch) => {
   );
 };
 
+
+const loginAction = (data) => (dispatch) => {
+  dispatch(formLoaderAction(1));
+
+  return AuthService.login(data).then(
+    (response) => {
+      dispatch({
+        type: t.LOGIN_SUCCESS,
+        payload: {
+          access_token: response.data.data.access_token,
+          ...response.data.data.user,
+        },
+      });
+      dispatch(formLoaderAction(0));
+      dispatch(displayMessageAction("Login Successfuly"));
+      return Promise.resolve();
+    },
+    (error) => {
+      dispatch(displayErrorsAction(error, t.LOGIN_FAIL));
+      dispatch(formLoaderAction(0));
+      return Promise.reject();
+    }
+  );
+};
+
 export {
   registerAction,
+  loginAction
 };

@@ -1,14 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { connect } from 'react-redux';
 import { Box, Container, TextField, Typography } from "@mui/material";
 import CustomButton from '../../components/button';
 import styled from "styled-components";
-
+import { loginAction } from 'redux/actions/authAction';
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
-
-function Login() {
-    const navigate = useNavigate()
     const FormSection = styled("div")(({ theme }) => ({
         maxWidth: "100%",
         marginLeft: "auto",
@@ -33,18 +30,39 @@ function Login() {
           },
         },
       
-      }));
-      
-      const FormBox = styled("div")(({ theme }) => ({
-        display: "flex",
-        flexDirection: "column",
-        gap: "2.25rem",
-        backgroundColor:"background.paper",
-        "& .borderColor":{
-          borderBlockColor:"transparent",
-        }
-      }));
-      
+    }));      
+    const FormBox = styled("div")(({ theme }) => ({
+      display: "flex",
+      flexDirection: "column",
+      gap: "2.25rem",
+      backgroundColor:"background.paper",
+      "& .borderColor":{
+        borderBlockColor:"transparent",
+      }
+    }));
+
+function Login(props) {
+    const navigate = useNavigate()
+    const [formFields, setFormFields] = useState({
+      email: '',
+      password: '',
+    })
+
+    const handleChange = (e) => {
+      setFormFields((prevState) => ({
+        ...prevState,        
+        [e.target.name]: e.target.value
+      }))
+    }
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      let formData = new FormData();
+      formData.append('email', formFields.email);
+      formData.append('password', formFields.password);
+      props.login(formData).then(()=>{
+        navigate('/dashboard')
+      })      
+    }
   return (
     <>
    <section className="main" style={{height: "100vh"}}>
@@ -55,28 +73,35 @@ function Login() {
     backgroundColor:'#212121',
     padding:"2rem",
     borderRadius:"15px"}}>
-          <form className="form" >
+          <form className="form" onSubmit={handleSubmit}>
           <Typography className="formheading" variant='h5' color="white">Login</Typography>
               <FormBox m={5}>
                 <TextField
-                  id="outlined-basic"
-                  textColor="#767676"
-                  label="Email*"
-                  variant="outlined"
-                  InputLabelProps={{style : {color : 'white'} }}
-                  style={{marginTop:"2rem"}}
+                   type='email'
+                   onChange={handleChange}
+                   value={formFields?.email}
+                   name='email'
+                   InputLabelProps={{style : {color : 'white'} }}
+                   style={{marginTop:"2rem"}}
+                   textColor="#767676"
+                   label="Email *"
+                   variant="outlined"
                 />
+                 {props.common.errors.email && <p className='form-error'>{props.common.errors.email[0] || props.common.errors.email}</p>}
                 <TextField
-                
-                
-                InputLabelProps={{style : {color : 'white'} }}
-                  id="outlined-basic"
-                  label="Password*"
-                  variant="outlined"
-                />
+                   onChange={handleChange}
+                   name='password'
+                   value={formFields?.password}
+                   type='password'
+                   InputLabelProps={{style : {color : 'white'} }}
+                   label="Password *"
+                   variant="outlined"
+                />{props.common.errors.password && <p className='form-error'>{props.common.errors.password[0] || props.common.errors.password}</p>}
                 <Typography variant='p' color="#FF9800" style={{marginLeft:'4px'}}>Forgotten Password?</Typography>
                 <CustomButton
-                className="borderColor"
+                  disabled={props.common.form_loder === 1}
+                  isLoading={props.common.form_loder === 1}
+                  className="borderColor" style={{borderBlockColor: "transparent"}}
                   textColor="#767676"
                   color="#3C3C3C"
                   text="Login"
@@ -101,4 +126,14 @@ function Login() {
   )
 }
 
-export default Login
+
+const mapStatesToProps = (state) => ({
+  auth: state.auth,
+  common: state.common
+})
+const mapDispatchToProps = (dispatch) => ({
+  login: data => dispatch(loginAction(data))
+})
+
+
+export default connect(mapStatesToProps, mapDispatchToProps)(Login);
