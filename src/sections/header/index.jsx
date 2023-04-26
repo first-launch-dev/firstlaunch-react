@@ -23,6 +23,7 @@ import { Menu, MenuItem } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { logoutAction } from "redux/actions/authAction";
 
 const drawerWidth = 240;
 
@@ -62,6 +63,7 @@ function Header(props) {
   const routeToSignUp = () => {
     navigate('/signUp')
   }
+  
   const pageItems = [
     { menu: "Home", route: '/' },
     { menu: "Services", route: '/services' },
@@ -262,7 +264,9 @@ function Header(props) {
                 }}
                 open={Boolean(accountAnchorEl)}
                 onClose={handleAccountClose}>
-                <MenuItem>
+                <MenuItem onClick={()=>{
+                  props.logout().then(()=>{navigate('/login')});
+                }}>
                   Logout
                 </MenuItem>
               </Menu>
@@ -321,6 +325,9 @@ const mapStatesToProps = (state) => ({
   auth: state.auth,
   common: state.common
 })
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logoutAction())
+})
 
 
-export default connect(mapStatesToProps)(Header);
+export default connect(mapStatesToProps, mapDispatchToProps)(Header);

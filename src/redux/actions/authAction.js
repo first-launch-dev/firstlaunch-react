@@ -55,7 +55,29 @@ const loginAction = (data) => (dispatch) => {
   );
 };
 
+
+const logoutAction = () => (dispatch, getState) => {
+  dispatch(formLoaderAction(1));
+  const token = getState().auth.user.access_token;
+  return AuthService.logout(token).then(
+    (response) => {
+      dispatch({
+        type: t.LOGOUT,
+      });
+      dispatch(formLoaderAction(0));
+      dispatch(displayMessageAction("Logout Successfuly"));
+      return Promise.resolve();
+    },
+    (error) => {
+      dispatch(displayErrorsAction(error));
+      dispatch(formLoaderAction(0));
+      return Promise.reject();
+    }
+  );
+};
+
 export {
   registerAction,
-  loginAction
+  loginAction,
+  logoutAction
 };

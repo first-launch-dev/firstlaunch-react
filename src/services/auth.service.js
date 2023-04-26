@@ -13,8 +13,13 @@ const login = (data) => {
   return axios.post(API_URL + "/login", data);
 };
 
+const logout = (token) => {
+  return axios.post(API_URL + "/logout", {}, { headers: { Authorization: `Bearer ${token}` } });
+};
+
 const AuthService = {
   register,
-  login
+  login,
+  logout
 };
 export default AuthService;
