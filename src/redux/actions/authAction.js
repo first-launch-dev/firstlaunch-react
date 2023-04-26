@@ -19,6 +19,7 @@ const registerAction = (data) => (dispatch) => {
         },
       });
       dispatch(formLoaderAction(0));
+      dispatch(displayMessageAction('Registered Successfuly'));
       return Promise.resolve();
     },
     (error) => {

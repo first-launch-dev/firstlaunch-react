@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { BrowserRouter as Router, Routes, Route, useNavigate, RouterProvider, Switch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { connect } from "react-redux";
 import Header from "./sections/header";
 import Footer from "./sections/footer";
 import "slick-carousel/slick/slick.css";
@@ -10,7 +11,7 @@ import Pay from "./pages/pay";
 import Services from "./pages/services";
 import WirtingTalent from "./pages/wirting-talent";
 import VoiceTalent from "./pages/voice-talent";
-import { router } from "./router";
+import { useLocation } from 'react-router-dom'
 import MusicalTalent from "./pages/musical-talent";
 import ProfessionalModels from "./pages/professional-models";
 import Influencers from "./pages/influencers";
@@ -27,11 +28,13 @@ import Login from "./pages/Login/Login";
 import Coordinator from "./pages/FooterFormPages/Coordinator";
 import PartnerShip from "./pages/FooterFormPages/PartnerShip";
 import Booking from "./pages/Booking/Booking";
-
-import { useLocation } from 'react-router-dom'
 import SignUp from "./pages/SignUp/SignUp";
 
-function App() {
+import { ToastContainer, toast } from "react-toastify";
+import { setMessage, resetFormErrorsAction } from "redux/actions/commonActions";
+
+
+function App({common, setMessage, resetErrors}) {
   const [isArabic, setIsArabic] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [fade, setFade] = useState(false);
@@ -42,6 +45,16 @@ function App() {
   const banner = useRef(null);
   const services = useRef(null);
  
+  const location = useLocation();
+  useEffect(()=>{
+    if(common.message  !== null){
+      toast[common.message.type](common.message.message);
+      setMessage(null)
+    }
+  }, [common, setMessage])
+  useEffect(() => {
+    if (location) resetErrors({});
+  }, [location]);
 
   const HeaderApp =() => {
     let location = useLocation();
@@ -123,25 +136,14 @@ function App() {
     });
   };
 
+
+
   return (
     <>
       <ThemeProvider theme={createTheme(isDark ? dark : light)}>
        
   
-        <Router>
-         {/* <Header
-          banner={banner}
-          setFade={setFade}
-          launchWithUs={launchWithUs}
-          aboutUs={aboutUs}
-          talentTrack={talentTrack}
-          ourTeam={ourTeam}
-          services={services}
-          scrollToSection={scrollToSection}
-          setIsArabic={setIsArabic}
-          
-        />  */}
-       
+     
        <HeaderApp />
           <Routes>
             <Route
@@ -187,12 +189,27 @@ function App() {
             <Route path="/Organization-partnership" element={<Coordinator heading="Partnership Application"/>} />
           </Routes>
           <FooterApp/>
-        </Router>
-        
-        {/* <Footer setIsDark={setIsDark} /> */}
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </ThemeProvider>
     </>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  common: state.common,
+});
+const mapDispatchToProps = (dispatch) => ({
+  setMessage: (data) => dispatch(setMessage(data)),
+  resetErrors: (data) => dispatch(resetFormErrorsAction(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

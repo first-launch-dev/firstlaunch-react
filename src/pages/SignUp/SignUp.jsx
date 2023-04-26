@@ -42,7 +42,7 @@ import {registerAction} from 'redux/actions/authAction';
      padding:"2rem",
      borderRadius:"15px"}}>
            <form className="form" onSubmit={handleSubmit}>
-           <Typography className="formheading" variant='h5' color="white">Login</Typography>
+           <Typography className="formheading" variant='h5' color="white">Sign Up</Typography>
                <div style={{
                   display: "flex",
                   flexDirection: "column",
