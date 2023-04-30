@@ -1,6 +1,6 @@
+import styled from "@emotion/styled";
 import { Box, Container, Typography } from "@mui/material";
 import React from "react";
-import styled from "styled-components";
 
 const CustomBox = styled("div")(({ theme }) => ({
   paddingTop: "10rem",
@@ -8,6 +8,10 @@ const CustomBox = styled("div")(({ theme }) => ({
   maxWidth: "47.25rem",
   marginLeft: "auto",
   marginRight: "auto",
+  [theme.breakpoints.down("md")]:{
+    paddingTop: "6rem",
+    paddingBottom: "5rem",
+  },
 
   "& .refundBox": {
     borderRadius: "4px",

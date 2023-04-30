@@ -13,6 +13,14 @@ import styled from "@emotion/styled";
 const MainSection = styled("div")(({ theme }) => ({
   paddingTop: "8rem",
   paddingBottom: "8rem",
+  [theme.breakpoints.down("md")]:{
+    paddingTop: "1rem",
+    paddingBottom: "1rem",
+  },
+  [theme.breakpoints.down("sm")]:{
+    paddingTop: "0.125rem",
+    paddingBottom: "0.5rem",
+  },
 }));
 
 const FormSection = styled("div")(({ theme }) => ({

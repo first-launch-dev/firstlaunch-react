@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { logoutAction } from "redux/actions/authAction";
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 function Header(props) {
   const {
@@ -102,7 +102,7 @@ function Header(props) {
     props.logout(navigate('/login'));
   }
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center", }}>
       <Typography
         variant="h6"
         sx={{ my: 2 }}
@@ -122,7 +122,8 @@ function Header(props) {
         {pageItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton
-              onClick={(event) => scrollToSection(event, item.ref)}
+              // onClick={(event) => scrollToSection(event,item.route)}
+              onClick={(event) => pageToView(event , item.route)} 
               sx={{ textAlign: "center" }}
               >
               <ListItemText primary={item.menu} />

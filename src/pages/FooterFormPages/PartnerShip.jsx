@@ -1,8 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
 import React from "react";
-import styled from "styled-components";
 import { useNavigate } from "react-router";
 import CustomButton from "../../components/button";
+import styled from "@emotion/styled";
 
 const CustomBox = styled("div")(({ theme }) => ({
   paddingTop: "10rem",
@@ -10,6 +10,14 @@ const CustomBox = styled("div")(({ theme }) => ({
   maxWidth: "47.25rem",
   marginLeft: "auto",
   marginRight: "auto",
+  [theme.breakpoints.down("md")]:{
+    paddingTop: "10rem",
+    paddingBottom: "6rem",
+  },
+  [theme.breakpoints.down("sm")]:{
+    paddingTop: "6rem",
+    paddingBottom: "3rem",
+  },
 
   "& .mainBox": {
     display: "flex",

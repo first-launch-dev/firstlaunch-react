@@ -20,7 +20,7 @@ const btnSX = {
 
 const renderListItems = (forPackage) => {
   let abc = (
-    <List sx={{ textAlign: "center" }}>
+    <List sx={{ textAlign: "center !important" }}>
       {forPackage.unmuted.map((y, idxx) => {
         <ListItem index={idxx}>{y}</ListItem>;
       })}
@@ -304,7 +304,7 @@ function Pricing() {
   return (
     <Box sx={{ bgcolor: "background.secondary" }}>
     <Container>
-      <Grid container py={20} spacing={3}>
+      <Grid container py={16} spacing={3}>
         {pricingData.map((x, index) => (
           <Grid item xs={12} sm={6} md={6} lg={3} key={index}>
             <Box

@@ -1,10 +1,14 @@
+import styled from "@emotion/styled";
 import { Box, Container, Typography } from "@mui/material";
 import React from "react";
-import styled from "styled-components";
 
 const CustomBox = styled("div")(({ theme }) => ({
   paddingTop: "8rem",
   paddingBottom: "4rem",
+  [theme.breakpoints.down("md")]:{
+    paddingTop: "5rem",
+    paddingBottom: "3rem",
+  },
   "& .heading": {
     fontSize: "2rem",
     color: "#fb8c00",

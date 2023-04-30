@@ -23,9 +23,16 @@ import styled from "@emotion/styled";
 const MainSection = styled("div")(({ theme }) => ({
   paddingTop: "12rem",
   paddingBottom: "10rem",
+  [theme.breakpoints.down("md")]: {
+    paddingTop: "8rem",
+    paddingBottom: "5rem",
+  },
   "& .gridLayout": {
     marginTop: "5rem",
-    textAlign:"center"
+    textAlign:"center",
+    [theme.breakpoints.down("md")]: {
+      marginTop: "0rem",
+    },
   },
   "& .heading": {
     fontSize: "2.125rem",
@@ -69,7 +76,7 @@ const OurTeam = () => {
               <span className="underheading">Our Team</span>
             </Typography>
             <Grid container spacing={3} className="gridLayout">
-              <Grid item xs={12} md={6} lg={4}>
+              <Grid item xs={12} md={6} lg={4} xl={4}>
                 <img className="images" src={img1} alt="team" />
                 <Typography className="name">Abdullah Mohammed-SAMT</Typography>
                 <Typography className="desig">Composer</Typography>
@@ -84,8 +91,6 @@ const OurTeam = () => {
                 <Typography className="name">Ahmad Qandil</Typography>
                 <Typography className="desig">Assistant Director</Typography>
               </Grid>
-            </Grid>
-            <Grid container spacing={3} className="gridLayout">
             <Grid item xs={12} md={6} lg={4}>
               <img className="images" src={img4} alt="team" />
               <Typography className="name">Elaf Saab</Typography>
@@ -101,8 +106,6 @@ const OurTeam = () => {
               <Typography className="name">Hassan Basrawi</Typography>
               <Typography className="desig">Model</Typography>
             </Grid>
-          </Grid>
-          <Grid container spacing={3} className="gridLayout">
           <Grid item xs={12} md={6} lg={4}>
             <img className="images" src={img7} alt="team" />
             <Typography className="name">Hayfa Hussain</Typography>
@@ -118,8 +121,6 @@ const OurTeam = () => {
             <Typography className="name">Maram Qadi</Typography>
             <Typography className="desig">Model</Typography>
           </Grid>
-        </Grid>
-        <Grid container spacing={3} className="gridLayout">
         <Grid item xs={12} md={6} lg={4}>
           <img className="images" src={img10} alt="team" />
           <Typography className="name">Marwan Alshehri</Typography>
@@ -135,8 +136,6 @@ const OurTeam = () => {
           <Typography className="name">Osama Bugis</Typography>
           <Typography className="desig">Singer</Typography>
         </Grid>
-      </Grid>
-      <Grid container spacing={3} className="gridLayout">
       <Grid item xs={12} md={6} lg={4}>
         <img className="images" src={img13} alt="team" />
         <Typography className="name">Rafal Qassem</Typography>
@@ -152,8 +151,6 @@ const OurTeam = () => {
         <Typography className="name">Rawan Hussain</Typography>
         <Typography className="desig">Photographer & Video</Typography>
       </Grid>
-    </Grid>
-    <Grid container spacing={3} className="gridLayout">
     <Grid item xs={12} md={6} lg={4}>
       <img className="images" src={img16} alt="team" />
       <Typography className="name">Saleh Kashogji</Typography>

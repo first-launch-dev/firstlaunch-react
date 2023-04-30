@@ -12,6 +12,7 @@ const MainSection = styled("div")(({ theme }) => ({
   alignItem: "center",
   gap:"1rem",
   [theme.breakpoints.down("md")]:{
+    gap:"0rem",
     flexDirection:"column-reverse",
   },
   "& .section": {
@@ -26,6 +27,9 @@ const MainSection = styled("div")(({ theme }) => ({
     "& .paragraph":{
       fontSize: "0.875rem",
       fontWeight: "400",
+      [theme.breakpoints.down("md")]:{
+        maxWidth:"45.5rem",
+      },
     },
     "& .subheading":{
       fontSize: "1.5rem",
@@ -42,6 +46,9 @@ const MainSection = styled("div")(({ theme }) => ({
   },
   "& .pictureSection":{
     maxWidth:"40.5rem",
+    [theme.breakpoints.down("md")]:{
+      maxWidth:"45.5rem",
+    },
   }
 }));
 
@@ -50,7 +57,7 @@ const MainSection = styled("div")(({ theme }) => ({
 const AboutUs = () => {
   return (
     <>
-      <Box sx={{ bgcolor: "background.secondary" }} pt={10} pb={16}>
+      <Box sx={{ bgcolor: "background.secondary" }} pt={8} pb={12}>
         <Container maxWidth="lg">
           <MainSection>
             <Box container className="section" pt={10}>
@@ -111,7 +118,7 @@ const AboutUs = () => {
 
               
             </Box>
-            <Box className="pictureSection" pt={10}>
+            <Box className="pictureSection" pt={11}>
                 <img src={bannerImage} alt="bannerImage" width="100%" />
               </Box>
           </MainSection>

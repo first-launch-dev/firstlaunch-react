@@ -11,11 +11,19 @@ import styled from "@emotion/styled";
 const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
   gap: "2rem",
-  paddingTop: "10rem",
+  paddingBottom: "3rem",
   paddingTop: "12rem",
   [theme.breakpoints.down("md")]:{
     flexDirection:"column",
+    paddingBottom: "0rem",
+    paddingTop: "7rem",
   },
+  "& .imageBox":{
+    maxWidth:"40.5rem",
+    [theme.breakpoints.down("md")]:{
+    maxWidth:"45.5rem",
+    }
+  }
 }));
 
 const CustomBox = styled("div")(({ theme }) => ({
@@ -54,7 +62,7 @@ const FormSection = styled("div")(({ theme }) => ({
   marginTop: "10rem",
   marginBottom: "10rem",
   maxWidth: "44.313rem",
-  backgroundColor:"background.paper",
+  backgroundColor:"background.paper !important",
   borderRadius:"0.25rem",
   "& .form": {
     padding: "3rem",
@@ -79,7 +87,7 @@ const FormBox = styled("div")(({ theme }) => ({
   gap: "2.25rem",
   backgroundColor:"background.paper",
   "& .borderColor":{
-    borderBlockColor:"transparent",
+    borderColor:"transparent",
   }
 }));
 
@@ -133,10 +141,10 @@ const LaunchWithUs = () => {
 
   return (
     <>
-      <Box sx={{ bgcolor: "background.secondary" }}>
+      <Box sx={{ bgcolor: "background.overlay" }}>
         <Container>
           <MainSection>
-            <Box sx={{ maxWidth: "40.5rem" }}>
+            <Box className="imageBox">
               <img src={img} width="100%" />
             </Box>
             <CustomBox>
