@@ -49,7 +49,7 @@ function App({common, setMessage, resetErrors, auth}) {
   const location = useLocation();
   useEffect(()=>{
     if(common?.message  !== null){
-      toast[common?.message?.type](common?.message?.message);
+      toast[common?.message.type](common.message.message);
       setMessage(null)
     }
   }, [common, setMessage])
@@ -172,7 +172,7 @@ function App({common, setMessage, resetErrors, auth}) {
             <Route path="/services/professional-models" element={<ProfessionalModels />} />
             <Route path="/services/influencers" element={<Influencers />} />
             <Route path="/services/acting-talent" element={<ActingTalent />} />
-            <Route path="/services/:type/pricing" element={<Pricing/>} />
+            <Route path="/pricing" element={<Pricing/>} />
             <Route path="/portfolio" element={<Portfolio/>} />
             <Route path="/ourteam" element={<OurTeam/>} />
             <Route path="/privacy-policy" element={<PrivacyPolicy/>} />

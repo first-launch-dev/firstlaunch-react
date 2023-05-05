@@ -340,7 +340,7 @@ function WirtingTalent({ aboutUs }) {
             minWidth: "190px",
           }}
           onClick={() => {
-            navigate("/services/writing-talent/pricing");
+            navigate("/pricing");
           }}
         >
           Book Now

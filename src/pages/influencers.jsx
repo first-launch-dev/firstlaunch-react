@@ -100,7 +100,7 @@ function Influencers({ aboutUs }) {
             minWidth: "190px",
           }}
           onClick={() => {
-            navigate("/services/influencers/pricing");
+            navigate("/pricing");
           }}
         >
           Book Now

@@ -96,7 +96,7 @@ function MusicalTalent({ aboutUs }) {
             minWidth: "190px",
           }}
           onClick={() => {
-            navigate("/services/musical-talent/pricing");
+            navigate("/pricing");
           }}
         >
           Book Now

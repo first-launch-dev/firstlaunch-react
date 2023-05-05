@@ -68,17 +68,25 @@ function Portfolio() {
     <Box sx={{ bgcolor: "background.secondary" }}>
       <Container maxWidth="lg">
         <MainSection>
-          {!isFetching && data.length > 0 ? (
-            <PictureSection>
-              {data.map((item, index) => (
-                <img
-                  src={item?.path}
-                  alt={item?.name}
-                  key={index}
-                  className="images"
-                />
-              ))}
-            </PictureSection>
+          {!isFetching ? (
+            <>
+              {data.length > 0 ? (
+                <PictureSection>
+                  {data.map((item, index) => (
+                    <img
+                      src={item?.path}
+                      alt={item?.name}
+                      key={index}
+                      className="images"
+                    />
+                  ))}
+                </PictureSection>
+              ) : (
+                <Typography variant="h5" color="white">
+                  No Image
+                </Typography>
+              )}
+            </>
           ) : (
             <Typography variant="h5" color="white">
               Loading...

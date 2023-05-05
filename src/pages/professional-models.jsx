@@ -107,7 +107,7 @@ function ProfessionalModels({ aboutUs }) {
             minWidth: "190px",
           }}
           onClick={() => {
-            navigate("/services/professional-models/pricing");
+            navigate("/pricing");
           }}
         >
           Book Now

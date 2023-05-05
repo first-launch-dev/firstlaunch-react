@@ -4,7 +4,7 @@ import { apiUrl } from "helper.js";
 const API_URL = apiUrl();
 
 /*
- ** Basic Auth
+ ** List of portfolio
  */
 const fetchAll = (data) => {
   return axios.get(API_URL + "/appointment/portfolio/get-portfolio", data);

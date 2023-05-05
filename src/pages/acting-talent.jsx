@@ -343,7 +343,7 @@ function ActingTalent({ aboutUs }) {
             minWidth: "190px",
           }}
           onClick={() => {
-            navigate("/services/acting-talent/pricing");
+            navigate("/pricing");
           }}
         >
           Book Now

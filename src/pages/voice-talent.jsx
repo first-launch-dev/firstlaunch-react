@@ -350,7 +350,7 @@ function VoiceTalent({ aboutUs }) {
                 minWidth: "190px",
               }}
               onClick={() => {
-                navigate("/services/voice-talent/pricing");
+                navigate("/pricing");
               }}
             >
               Book Now
