@@ -10,7 +10,6 @@ const registerAction = (data, navigate) => (dispatch) => {
   dispatch(formLoaderAction(1));
   return AuthService.register(data).then(
     (response) => {
-      console.log(response);
       dispatch({
         type: t.REGISTER_SUCCESS,
         payload: {
@@ -20,7 +19,7 @@ const registerAction = (data, navigate) => (dispatch) => {
       });
       dispatch(formLoaderAction(0));
       dispatch(displayMessageAction('Registered Successfuly'));
-      navigate();
+      navigate('/dashboard')
       return Promise.resolve();
     },
     (error) => {
@@ -46,7 +45,7 @@ const loginAction = (data, navigate) => (dispatch) => {
       });
       dispatch(formLoaderAction(0));
       dispatch(displayMessageAction("Login Successfuly"));
-      navigate();
+      navigate('/dashboard')
       return Promise.resolve();
     },
     (error) => {
@@ -67,8 +66,7 @@ const logoutAction = (navigate) => (dispatch, getState) => {
         type: t.LOGOUT,
       });
       dispatch(formLoaderAction(0));
-      dispatch(displayMessageAction("Logout Successfuly"));
-      navigate();
+      navigate('/login')      
       return Promise.resolve();
     },
     (error) => {

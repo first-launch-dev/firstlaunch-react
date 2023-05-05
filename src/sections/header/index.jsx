@@ -38,35 +38,34 @@ function Header(props) {
     scrollToSection,
     setFade,
     banner,
-    services
+    services,
   } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const theme = useTheme();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const navItems = [
     // { menu: "Launch With Us", ref: launchWithUs },
     // { menu: "About us", ref: aboutUs },
     // { menu: "Talent Track", ref: talentTrack },
     // { menu: "Our Team", ref: ourTeam },
     // { menu: "Services", ref: services}
-   
   ];
-//   const location = useLocation();
-//  const pathname = location.pathname
+  //   const location = useLocation();
+  //  const pathname = location.pathname
   const pageToView = (e, route) => {
     e.preventDefault();
     navigate(route);
-  }
+  };
   const routeToLogin = () => {
-    navigate('/login')
-  }
+    navigate("/login");
+  };
   const routeToSignUp = () => {
-    navigate('/signUp')
-  }
-  
+    navigate("/signUp");
+  };
+
   const pageItems = [
-    { menu: "Home", route: '/' },
-    { menu: "Services", route: '/services' },
+    { menu: "Home", route: "/" },
+    { menu: "Services", route: "/services" },
     { menu: "Pricing", route: "/pricing" },
     { menu: "Portfolio", route: "/portfolio" },
     { menu: "Our Team", route: "/ourteam" },
@@ -74,7 +73,7 @@ function Header(props) {
     { menu: "Launch With Us", route: "/launchwithus" },
     // { menu: "Login", route: "/login" },
     // { menu: "Our Team", ref: ourTeam },
-  ]
+  ];
   // const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleMenu = (event) => {
@@ -87,8 +86,6 @@ function Header(props) {
     setMobileOpen((prevState) => !prevState);
   };
 
-
-  
   const [accountAnchorEl, setAccountAnchorEl] = React.useState(null);
   const handleAccountMenu = (event) => {
     setAccountAnchorEl(event.currentTarget);
@@ -97,16 +94,16 @@ function Header(props) {
     setAccountAnchorEl(null);
   };
 
-
   const logoutHandler = () => {
-    props.logout(navigate('/login'));
-  }
+    props.logout(navigate);
+  };
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center", }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography
         variant="h6"
         sx={{ my: 2 }}
-        onClick={(event) => scrollToSection(event, banner)}>
+        onClick={(event) => scrollToSection(event, banner)}
+      >
         <img
           style={{ maxWidth: "150px" }}
           src={
@@ -123,9 +120,9 @@ function Header(props) {
           <ListItem key={item} disablePadding>
             <ListItemButton
               // onClick={(event) => scrollToSection(event,item.route)}
-              onClick={(event) => pageToView(event , item.route)} 
+              onClick={(event) => pageToView(event, item.route)}
               sx={{ textAlign: "center" }}
-              >
+            >
               <ListItemText primary={item.menu} />
             </ListItemButton>
           </ListItem>
@@ -137,13 +134,13 @@ function Header(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
-   
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         sx={{ bgcolor: "background.paper", backgroundImage: "none" }}
-        component="nav">
+        component="nav"
+      >
         <Container>
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <IconButton
@@ -151,14 +148,16 @@ function Header(props) {
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}>
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
               <MenuIcon />
             </IconButton>
             <Typography
               variant="h6"
               component="div"
               sx={{ display: { xs: "none", sm: "block" }, color: "#000" }}
-              onClick={(event) => scrollToSection(event, banner)}>
+              onClick={(event) => scrollToSection(event, banner)}
+            >
               <img
                 style={{ maxWidth: "150px" }}
                 src={
@@ -170,24 +169,25 @@ function Header(props) {
               />
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
-                {pageItems.map((item) => (
-                  <Button
-                    key={item}
-                    onClick={(event) => pageToView(event , item.route)}
-                    sx={{
-                      color: "text.primary",
-                      textTransform: "capitalize",
-                      fontSize: 16,
-                      "&:hover": {
-                        color: "#fb8c22",
-                        background: "none"
-                      },
-                      "&:focus": {
-                        color: "#fb8c22",
-                      },
-                    }}>
-                    {item.menu}
-                  </Button>
+              {pageItems.map((item) => (
+                <Button
+                  key={item}
+                  onClick={(event) => pageToView(event, item.route)}
+                  sx={{
+                    color: "text.primary",
+                    textTransform: "capitalize",
+                    fontSize: 16,
+                    "&:hover": {
+                      color: "#fb8c22",
+                      background: "none",
+                    },
+                    "&:focus": {
+                      color: "#fb8c22",
+                    },
+                  }}
+                >
+                  {item.menu}
+                </Button>
               ))}
             </Box>
             <Box>
@@ -195,7 +195,8 @@ function Header(props) {
                 sx={{ marginRight: 3 }}
                 size="large"
                 onClick={handleMenu}
-                color={theme.palette.text.primary}>
+                color={theme.palette.text.primary}
+              >
                 <GTranslateIcon color={theme.palette.text.primary} />
               </IconButton>
 
@@ -212,13 +213,15 @@ function Header(props) {
                   horizontal: "right",
                 }}
                 open={Boolean(anchorEl)}
-                onClose={handleClose}>
+                onClose={handleClose}
+              >
                 <MenuItem
                   onClick={() => {
                     setIsArabic(true);
                     setFade(true);
                     handleClose();
-                  }}>
+                  }}
+                >
                   {" "}
                   <img src="assets/uae.png" width={20} alt="" />
                   &nbsp; العربية
@@ -228,63 +231,75 @@ function Header(props) {
                     setIsArabic(false);
                     setFade(true);
                     handleClose();
-                  }}>
+                  }}
+                >
                   <img src="assets/usa.png" width={20} alt="" /> &nbsp; English
                 </MenuItem>
               </Menu>
-              {props.auth.isLoggedIn && (<>
-              <IconButton
-                sx={{ marginRight: 3, borderRadius: '0' }}
-                size="large"
-                onClick={handleAccountMenu}
-                color={theme.palette.text.primary}>
-                <Typography
-                  variant="p"
-                  component="p"
-                  sx={{ display: { xs: "none", sm: "block" },
-                      color: "text.primary",
-                      textTransform: "capitalize",
-                      fontSize: 16,
-                      "&:hover": {
-                        color: "#fb8c22",
-                        background: "none"
-                      },
-                      "&:focus": {
-                        color: "#fb8c22",
-                      }}}>
-                  {props.auth.user.name} 
-                </Typography> 
-              </IconButton>
-              <Menu
-                id="menu-account"
-                anchorEl={accountAnchorEl}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(accountAnchorEl)}
-                onClose={handleAccountClose}>
-                <MenuItem onClick={logoutHandler}>
-                  Logout
-                </MenuItem>
-              </Menu>
-              </>)}
+              {props.auth.isLoggedIn && (
+                <>
+                  <IconButton
+                    sx={{ marginRight: 3, borderRadius: "0" }}
+                    size="large"
+                    onClick={handleAccountMenu}
+                    color={theme.palette.text.primary}
+                  >
+                    <Typography
+                      variant="p"
+                      component="p"
+                      sx={{
+                        display: { xs: "none", sm: "block" },
+                        color: "text.primary",
+                        textTransform: "capitalize",
+                        fontSize: 16,
+                        "&:hover": {
+                          color: "#fb8c22",
+                          background: "none",
+                        },
+                        "&:focus": {
+                          color: "#fb8c22",
+                        },
+                      }}
+                    >
+                      {props.auth.user.name}
+                    </Typography>
+                  </IconButton>
+                  <Menu
+                    id="menu-account"
+                    anchorEl={accountAnchorEl}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(accountAnchorEl)}
+                    onClose={handleAccountClose}
+                  >
+                    <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+                  </Menu>
+                </>
+              )}
               {/* onClick={() => loginWithRedirect()} */}
               {!props.auth.isLoggedIn && (
-<>              <CustomButton text="Login" onClick={routeToLogin}  customSx={{ color: "text.primary" }} />
-              <CustomButton
-                color="#ff9800"
-                customSx={{ ml: 1, color: "text.primary" }}
-                text="Sign Up"
-                onClick={routeToSignUp}
-              /></>
+                <>
+                  {" "}
+                  <CustomButton
+                    text="Login"
+                    onClick={routeToLogin}
+                    customSx={{ color: "text.primary" }}
+                  />
+                  <CustomButton
+                    color="#ff9800"
+                    customSx={{ ml: 1, color: "text.primary" }}
+                    text="Sign Up"
+                    onClick={routeToSignUp}
+                  />
+                </>
               )}
-
             </Box>
           </Toolbar>
         </Container>
@@ -304,14 +319,14 @@ function Header(props) {
               boxSizing: "border-box",
               width: drawerWidth,
             },
-          }}>
+          }}
+        >
           {drawer}
         </Drawer>
       </Box>
     </Box>
   );
 }
-
 
 Header.propTypes = {
   /**
@@ -321,16 +336,12 @@ Header.propTypes = {
   window: PropTypes.func,
 };
 
-
-
-
 const mapStatesToProps = (state) => ({
   auth: state.auth,
-  common: state.common
-})
+  common: state.common,
+});
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logoutAction())
-})
-
+  logout: (navigate) => dispatch(logoutAction(navigate)),
+});
 
 export default connect(mapStatesToProps, mapDispatchToProps)(Header);
